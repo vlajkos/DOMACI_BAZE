@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+
+.main {
+    display: flex;
+    height: 20rem;
+    flex-basis: 100rem;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+
+
+
+
+}
+
+
+.main-background {
+    background-color: blanchedalmond;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+.main-header h1 {
+    font-size: 5rem;
+    margin-bottom: 1.2rem;
+}
+
+.main-header h2 {
+    font-size: 3rem;
+
+}
+
+/* LOGIN */
+.main-login {
+    background-color: rgb(248, 237, 221);
+    border: 2px solid black;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 50rem;
+    border-radius: 1rem;
+
+}
+
+.login-form {
+    display: flex;
+    height: 20rem;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.main-login form input {
+    margin-bottom: 3rem;
+}
+
+.login-form input,
+.login-form button {
+    width: 34rem;
+    padding: 0.8rem 0.1rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    background-color: white;
+
+}
+
+.login-form button {
+    width: 20rem;
+}
+
+.register-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.register-form button {
+    padding: 1.5rem .5rem;
+    font-size: 2rem;
+    border-radius: 2rem 1rem;
+    width: 22rem;
+    background-color: rgb(249, 219, 175);
+    box-shadow: 0 0 4px #000;
+    margin-top: 10rem;
+}
+
+/* Register forma */
+#register-button {
+    padding: 1.5rem .5rem;
+    font-size: 2rem;
+    border-radius: 2rem 1rem;
+    width: 22rem;
+    margin-top: 2rem;
+    background-color: rgb(249, 219, 175);
+    box-shadow: 0 0 4px #000;
+}
+
+.gender-select {
+    width: 34rem;
+    padding: 0.8rem 0.1rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+
+}
+
+input[type="date"] {
+    padding: 2rem;
+}
+
+/* copyright */
+.copyright {
+    height: 4rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
