@@ -70,7 +70,7 @@ html {
 }
 
 .main-login form input {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .login-form input,
@@ -94,8 +94,8 @@ html {
 }
 
 .register-form button {
-    padding: 1.5rem .5rem;
-    font-size: 2rem;
+    padding: 1.2rem .5rem;
+    font-size: 1.8rem;
     border-radius: 2rem 1rem;
     width: 22rem;
     background-color: rgb(249, 219, 175);
@@ -105,8 +105,8 @@ html {
 
 /* Register forma */
 #register-button {
-    padding: 1.5rem .5rem;
-    font-size: 2rem;
+    padding: 1.2rem .5rem;
+    font-size: 1.8rem;
     border-radius: 2rem 1rem;
     width: 22rem;
     margin-top: 2rem;

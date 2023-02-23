@@ -1,6 +1,17 @@
+<?php
+require "handler/dbBroker.php";
+require "model/user.php";
+
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,19 +35,13 @@
 
             <div class="main-login">
                 <form class="login-form" action="#">
-                    <input type="email" placeholder="Email">
-                    <input type="text" name="" id="" placeholder="Šifra">
-                    <input type="text" name="" id="" placeholder="Korisničko Ime">
-                    <input type="date" name="" id="">
-                    <select class="gender-select" name="" id="">
-                        <option value="" disabled selected>Pol</option>
-                        <option value="m">Muškarac</option>
-                        <option value="z">Žena</option>
-                        <option value="d">Drugo</option>
-                    </select>
-                    <button id="register-button">Registruj se</button>
+                    <input type="text" placeholder="Unesite email ili korisničko ime">
+                    <input type="password" name="" id="" placeholder="Šifra">
+                    <button class="log-btn">Loguj se</button>
                 </form>
-
+                <form class="register-form" action="register.php">
+                    <button>Registruj se</button>
+                </form>
 
             </div>
         </div>
