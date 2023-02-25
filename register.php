@@ -10,13 +10,12 @@ if (isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["passwor
    $birth = $_POST["birth"];
    $gender = $_POST["gender"];
    $city = $_POST["city"];
-   if((strlen($email) > 5 && strlen($email)<= 60) && (strlen($username) > 4 && strlen($username)<= 20) 
-   &&(strlen($password) > 7 && strlen($password) <= 30) &&(strlen($city) > 5 && strlen($city)<= 30
-   && preg_match('~[0-9]+~', $password)) ) {
-  
+   if(User::checkRegistration($email, $password, $username, $city, $birth, $gender) ) {
    $user = new User(1,$email, $password, $username, $city, $birth, $gender);
-   $user->registerUser($conn);
-  
+   if ($user->checkEmail($conn) && $user->checkUsername($conn)) {
+    $user->registerUser($conn);
+    header("Location: index.php");
+   }
    }
    
 }
@@ -59,9 +58,9 @@ if (isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["passwor
                     <input type="date" name="birth" id="regBirth" >
                     <select class="gender-select" name="gender" id="regGender">
                         <option value="" disabled selected>Pol</option>
-                        <option value="m">Muškarac</option>
-                        <option value="z">Žena</option>
-                        <option value="d">Drugo</option>
+                        <option value="M">Muškarac</option>
+                        <option value="F">Žena</option>
+                        <option value="O">Drugo</option>
                     </select>
                     <button id="register-button">Registruj se</button>
                 </form>

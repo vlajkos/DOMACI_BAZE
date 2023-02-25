@@ -66,6 +66,47 @@ public function registerUser($conn) {
     return $conn->query($query);
 }
 
+public static function checkRegistration($email, $password, $username, $city, $birth, $gender) {
+   if ((strlen($email) > 4 && strlen($email)<= 60) && (strlen($username) >= 4 && strlen($username)<= 20) 
+   &&(strlen($password) > 7 && strlen($password) <= 30) &&(strlen($city) > 5 && strlen($city)<= 30
+   && preg_match('~[0-9]+~', $password))) {
+    return true;
+   }
+   else return false;
+    
+}
+public function checkEmail($conn) {
+    $query = "SELECT * FROM users
+              WHERE email= '{$this->email}' ";
+    $result = $conn->query($query);
+    if($result->num_rows === 0) return true;
+    else return false;
+}
+public function checkUsername($conn) {
+    $query = "SELECT * FROM users
+              WHERE username= '{$this->username}'";
+     $result = $conn->query($query);
+     if($result->num_rows === 0) return true;
+     else return false;
+              
+}
+public function logIn($conn) {
+    if($this->username != NULL) {
+        $username = $this->username;
+        $query = "SELECT * FROM users
+        WHERE username = '$username' AND password = '{$this->password}'";
+    }
+    else {
+        $email = $this->email;
+        $query = "SELECT * FROM users
+        WHERE email = '$email' AND password = '{$this->password}'";
+    }  
+    $result = $conn->query($query);
+    return $result;
+   
+    
+}
+
 }
 
 
