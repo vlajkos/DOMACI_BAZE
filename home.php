@@ -6,6 +6,10 @@
 // else {
 //     header("Location: index.php");
 // }
+require "handler/dbBroker.php";
+require "model/mushroom.php";
+$conn = Database::connectDatabase();
+$data = Mushroom::prikaziSve($conn);
 
 
 
@@ -26,10 +30,24 @@
       <div class="container-db">
         <h2>Moja baza</h2>
          <div class="home-db">
-         
             <button class="addBtn">+</button>
-          
+            <?php
+         while ($row = $data->fetch_array()):
+         ?>
+        <ul class="home-ul">
+         <li><?php echo $row["latinskiNaziv"];?><li>
+         <li><?php echo $row["naziv"];?><li>
+         <li><?php echo $row["datum"];?><li>
+         <li><?php echo $row["lokacija"];?><li>
+         <li><?php echo $row["opis"];?><li>
+         <li><form action="handler/delete.php" method="POST">
+            <button>Delete</button>
+            <input name="delete" class="home-delete-input-hidden" type="text" value=<?php echo  $row['mushroomId']?>>
+         </form></li>
+         </ul>
+           <?php endwhile ?>
          </div>
+        
       </div>
     </div>
 
@@ -39,18 +57,19 @@
         Gljivarnik &copy; 2023
     </div>
 <div >
-<form class="popup-form" action="">
-    <input type="text" name="" placeholder="Latinski naziv" id="">
-    <input type="text" placeholder="Naziv">
+<form class="popup-form" action="handler/add.php" method="POST">
+    <input type="text" name="latinskiNaziv" placeholder="Latinski naziv" id="">
+    <input type="text" name="naziv" placeholder="Naziv">
     <div class= "popup-date-container"> 
         <label for="popup-date">Vreme pronalaska:</label>
-        <input type="date" name="popup-date" id="popup-date">
+        <input type="date" name="datum" id="popup-date">
     </div>
-    <input type="text" placeholder="Lokacija, Format: 41.40338, 2.17403">
+    <input type="text" name="lokacija" placeholder="Lokacija, Format: 41.40338, 2.17403">
     <div class= "popup-help-container">
         <label for="popup-help">Da li je potrebna pomoć oko determinacije?</label>
         <input type="radio" name="popup-help" id="popup-help">
     </div>
+    <textarea name="opis" id="" cols="10" rows="8" placeholder="Opis"></textarea>
    <div class="popup-img-container">
      <label for="img">Izaberi sliku:</label>
      <input type="file"  id="img" name="img" accept="image/*">
