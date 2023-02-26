@@ -134,3 +134,166 @@ input[type="date"] {
     align-items: center;
     justify-content: center;
 }
+
+
+
+
+/* Sređivanje moje baze */
+.addBtn {
+    font-size: 5rem;
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(249, 219, 175);
+    border-radius: 10px;
+    border: none;
+    margin: auto;
+}
+
+.container-db {
+    position: relative;
+    top: 20rem;
+
+}
+
+.container-db h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.home-background {
+    background-color: blanchedalmond;
+    height: 100vh;
+}
+
+.home-db {
+    background-color: white;
+    width: 80rem;
+    border-radius: 10px;
+    margin: auto;
+    border: 2px solid black;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+
+}
+
+.overlay-active {
+    opacity: 1;
+}
+
+/*Popup form*/
+.popup-form {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40rem;
+    height: 50rem;
+    background-color: rgb(248, 237, 221);
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+.popup-form-visible {
+    visibility: visible;
+}
+
+.popup-form input {
+    height: 4rem;
+    font-size: 1.6rem;
+    border: 2px solid black;
+    border-radius: 5px;
+
+}
+
+.popup-date-container {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.popup-date-container input {
+    border: none;
+}
+
+.popup-help-container {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.popup-help-container input {
+    display: inline-block;
+    width: 2rem;
+
+}
+
+.popup-img-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    width: 12rem;
+    height: 5rem;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+
+
+}
+
+.popup-img-container input[type="file"] {
+    border-top: none;
+    width: 24rem;
+    height: 5rem;
+    position: absolute;
+    right: -2rem;
+    top: 2rem;
+}
+
+#popup-add {
+    height: 5rem;
+    padding: 1.2rem .5rem;
+    font-size: 1.8rem;
+    border-radius: 2rem 1rem;
+    width: 22rem;
+    margin-top: 2rem;
+    background-color: rgb(249, 219, 175);
+    box-shadow: 0 0 4px #000;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
