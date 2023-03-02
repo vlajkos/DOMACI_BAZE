@@ -10,9 +10,6 @@ require "handler/dbBroker.php";
 require "model/mushroom.php";
 $conn = Database::connectDatabase();
 $data = Mushroom::prikaziSve($conn);
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,17 +28,18 @@ $data = Mushroom::prikaziSve($conn);
         <h2>Moja baza</h2>
          <div class="home-db">
             <button class="addBtn">+</button>
-            <?php
-         while ($row = $data->fetch_array()):
-         ?>
-        <ul class="home-ul">
-         <li><?php echo $row["latinskiNaziv"];?><li>
-         <li><?php echo $row["naziv"];?><li>
-         <li><?php echo $row["datum"];?><li>
-         <li><?php echo $row["lokacija"];?><li>
-         <li><?php echo $row["opis"];?><li>
-         <li><form action="handler/delete.php" method="POST">
-            <button>Delete</button>
+            <?php while ($row = $data->fetch_assoc()): ?>
+           <ul class="home-ul">
+           
+            <li><?php echo $row["latinskiNaziv"];?><li>
+            <li><?php echo $row["naziv"];?><li>
+            <li><?php echo $row["datum"];?><li>
+            <li><a href="<?php 
+            echo Mushroom::writeLocationHref($row["lokacija"]); ?>"><img class="location-icon"    src="img/location.png" alt=""></a>
+            <li>
+            <li><?php echo $row["opis"];?><li>
+            <li><form action="handler/delete.php" method="POST">
+            <button id="deleteBtn"></button>
             <input name="delete" class="home-delete-input-hidden" type="text" value=<?php echo  $row['mushroomId']?>>
          </form></li>
          </ul>
@@ -50,9 +48,6 @@ $data = Mushroom::prikaziSve($conn);
         
       </div>
     </div>
-
-
-   
     <div class="copyright">
         Gljivarnik &copy; 2023
     </div>

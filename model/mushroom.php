@@ -80,6 +80,37 @@ class Mushroom {
                   WHERE mushroomId = $mushroomId";
         return $conn->query($query);
     }
+  
+    public static function writeLocationHref($location) {
+        $location = str_replace(" ", "", $location);
+        $n = substr($location, 0, 10);
+        $e = substr($location, -10, 10);
+        $nDegrees = substr($n,0,2 );
+        $nMinutes = "0." . substr($n, 3, 10);
+        $nMinutes= (float)$nMinutes;
+        $nMinutes = $nMinutes*60;
+        $nSeconds = "0." . substr($nMinutes, 3, 10);
+        $nMinutes = substr($nMinutes,0 , 2);
+      
+        $nSeconds= (float)$nSeconds;
+        $nSeconds = $nSeconds*60;
+        $nSeconds = substr($nSeconds, 0 , 4);
+
+
+        $eDegrees = substr($e,0,2 );
+        $eMinutes = "0." . substr($e, 3, 10);
+        $eMinutes= (float)$eMinutes;
+        $eMinutes = $eMinutes*60;
+        $eSeconds = "0." . substr($eMinutes, 3, 10);
+        $eMinutes = substr($eMinutes,0 , 2);
+      
+        $eSeconds= (float)$eSeconds;
+        $eSeconds = $eSeconds*60;
+        $eSeconds = substr($eSeconds, 0 , 4);
+       
+        return "https://www.google.com/maps/place/$nDegrees%C2%B0$nMinutes'$nSeconds%22N+$eDegrees%C2%B0$eMinutes'$eSeconds%22E/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d44.6896944!4d20.5216389";
+        
+    }
 }
 
 

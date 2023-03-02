@@ -150,6 +150,7 @@ input[type="date"] {
     border-radius: 10px;
     border: none;
     margin: auto;
+    cursor: pointer;
 }
 
 .container-db {
@@ -175,16 +176,21 @@ input[type="date"] {
     border-radius: 10px;
     margin: auto;
     border: 2px solid black;
+    border-bottom: none;
 }
 
 /* Sređivanje dodatih pečuraka u tabelu */
 .home-ul {
     list-style: none;
     display: flex;
-    font-size: 2rem;
+    font-size: 1.8rem;
     justify-content: space-between;
-    border: 2px solid black;
+    align-items: center;
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
     padding: 1rem;
+    border-radius: 10px;
 }
 
 .home-delete-input-hidden {
@@ -206,6 +212,24 @@ input[type="date"] {
 .overlay-active {
     opacity: 1;
 }
+
+#deleteBtn {
+    width: 4rem;
+    height: 4rem;
+    background-image: url("../img/delete.png");
+    background-size: contain;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.location-icon {
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+}
+
+
 
 /*Popup form*/
 .popup-form {
