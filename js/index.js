@@ -35,8 +35,16 @@ for (let form of changeForm) {
         invisibleMushroomId.setAttribute("value", document.querySelector("#mushroomId").value);
         popupFormUpdate.classList.add("popup-form-update-visible");
         overlay.classList.add("overlay-active");
-    });
+
+
+    })
 }
+
+
+
+//....//
+
+
 
 
 

@@ -32,17 +32,18 @@ $data = Mushroom::prikaziSve($conn, $_SESSION["id"]);
         <?php while ($row = $data->fetch_assoc()) : ?>
           <ul class="home-ul">
 
-            <li><?php echo $row["latinskiNaziv"]; ?>
-            <li>
-            <li><?php echo $row["naziv"]; ?>
-            <li>
-            <li><?php echo $row["datum"]; ?>
-            <li>
-            <li><a target="_blank" href="<?php
-                                          echo Mushroom::writeLocationHref($row["lokacija"]); ?>"><img class="location-icon" src="img/location.png" alt=""></a>
-            <li>
-            <li><?php echo $row["opis"]; ?>
-            <li>
+            <li class="changeMe"><?php echo $row["latinskiNaziv"]; ?>
+            </li>
+            <li class="changeMe"><?php echo $row["naziv"]; ?>
+            </li>
+            <li class="changeMe"><?php echo $row["datum"]; ?>
+            </li>
+
+            <li class="changeMe"><?php echo $row["opis"]; ?>
+            <li class="changeMe"><a target="_blank" href="<?php
+                                                          echo Mushroom::writeLocationHref($row["lokacija"]); ?>"><img class="location-icon" src="img/location.png" alt=""></a>
+            </li>
+            </li>
             <li>
               <form action="handler/delete.php" method="POST">
                 <button id="deleteBtn"></button>
@@ -89,7 +90,7 @@ $data = Mushroom::prikaziSve($conn, $_SESSION["id"]);
   <!-- Forma za izmene kolona u bazi -->
   <form class="popup-form-update" action="handler/update.php" method="POST">
     <button class="popup-update-exit-btn popup-exit-btn">X</button>
-    <input type="text" name="latinskiNazivU" placeholder="Latinski naziv" id="">
+    <input type="text" name="latinskiNazivU" placeholder="Latinski naziv">
     <input type="text" name="nazivU" placeholder="Naziv">
     <div class="popup-date-container">
       <label for="popup-date">Vreme pronalaska:</label>
