@@ -3,35 +3,33 @@ require "handler/dbBroker.php";
 require "model/user.php";
 session_start();
 $conn = Database::connectDatabase();
-if (isset($_POST["loginUser"]) && isset($_POST["loginPassword"]) && $_POST["loginUser"] !="" && $_POST["loginPassword"] != "") {
+if (isset($_POST["loginUser"]) && isset($_POST["loginPassword"]) && $_POST["loginUser"] != "" && $_POST["loginPassword"] != "") {
     $password = $_POST["loginPassword"];
-    echo("RADIM");
-    
     if (str_contains($_POST["loginUser"], "@")) {
-        
+
         $email = $_POST["loginUser"];
-        $user = new User(1, $email, $password , NULL, NULL, NULL, NULL);
+        $user = new User(1, $email, $password, NULL, NULL, NULL, NULL);
         $result = $user->logIn($conn);
-        
-        $data= $result->fetch_array();
-        
-       
-       
-        if($result->num_rows === 1) {
+        $data = $result->fetch_array();
+
+        if ($result->num_rows === 1) {
             $username = $data["username"];
+            $id = $data["id"];
             $_SESSION["username"] = $username;
+            $_SESSION["id"] = $id;
             header("Location: home.php");
         }
-    }
-    else { 
+    } else {
         $username = $_POST["loginUser"];
-        $user = new User(1, NULL, $password , $username, NULL, NULL, NULL);
+        $user = new User(1, NULL, $password, $username, NULL, NULL, NULL);
         $result = $user->logIn($conn);
-        if($result->num_rows === 1) {
+        $data = $result->fetch_array();
+        $id = $data["id"];
+        if ($result->num_rows === 1) {
             $_SESSION["username"] = $username;
+            $_SESSION["id"] = $id;
             header("Location: home.php");
         }
-        
     }
 }
 
@@ -45,6 +43,7 @@ if (isset($_POST["loginUser"]) && isset($_POST["loginPassword"]) && $_POST["logi
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,8 +66,8 @@ if (isset($_POST["loginUser"]) && isset($_POST["loginPassword"]) && $_POST["logi
 
 
             <div class="main-login">
-                <form class="login-form"  method="POST">
-                    <input type="text" name="loginUser"placeholder="Unesite email ili korisničko ime">
+                <form class="login-form" method="POST">
+                    <input type="text" name="loginUser" placeholder="Unesite email ili korisničko ime">
                     <input type="password" name="loginPassword" id="" placeholder="Šifra">
                     <button class="log-btn">Loguj se</button>
                 </form>

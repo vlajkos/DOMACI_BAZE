@@ -85,6 +85,7 @@ html {
 
 .login-form button {
     width: 20rem;
+    cursor: pointer;
 }
 
 .register-form {
@@ -101,6 +102,7 @@ html {
     background-color: rgb(249, 219, 175);
     box-shadow: 0 0 4px #000;
     margin-top: 10rem;
+    cursor: pointer;
 }
 
 /* Register forma */
@@ -155,7 +157,7 @@ input[type="date"] {
 
 .container-db {
     position: relative;
-    top: 20rem;
+    top: 14rem;
 
 }
 
@@ -181,6 +183,7 @@ input[type="date"] {
 
 /* Sređivanje dodatih pečuraka u tabelu */
 .home-ul {
+    position: relative;
     list-style: none;
     display: flex;
     font-size: 1.8rem;
@@ -191,11 +194,17 @@ input[type="date"] {
     border-right: none;
     padding: 1rem;
     border-radius: 10px;
+    margin-bottom: 0.01rem;
 }
 
 .home-delete-input-hidden {
     display: none;
 }
+
+.home-change-input-hidden {
+    display: none;
+}
+
 
 .overlay {
     background-color: rgba(0, 0, 0, 0.5);
@@ -213,6 +222,8 @@ input[type="date"] {
     opacity: 1;
 }
 
+
+
 #deleteBtn {
     width: 4rem;
     height: 4rem;
@@ -223,6 +234,18 @@ input[type="date"] {
     cursor: pointer;
 }
 
+.changeBtn {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    height: 4rem;
+    border: 1px solid black;
+    padding: .1rem;
+
+}
+
+
+
 .location-icon {
     width: 4rem;
     height: 4rem;
@@ -232,7 +255,8 @@ input[type="date"] {
 
 
 /*Popup form*/
-.popup-form {
+.popup-form-add,
+.popup-form-update {
     visibility: hidden;
     display: flex;
     flex-direction: column;
@@ -252,11 +276,16 @@ input[type="date"] {
     font-size: 1.6rem;
 }
 
-.popup-form-visible {
+.popup-form-add-visible {
     visibility: visible;
 }
 
-.popup-form input {
+.popup-form-update-visible {
+    visibility: visible;
+}
+
+.popup-form-add input,
+.popup-form-update input {
     height: 4rem;
     font-size: 1.6rem;
     border: 2px solid black;
@@ -322,7 +351,8 @@ input[type="date"] {
     top: 2rem;
 }
 
-#popup-add {
+#popup-add,
+#popup-update {
     height: 5rem;
     padding: 1.2rem .5rem;
     font-size: 1.8rem;
@@ -334,4 +364,20 @@ input[type="date"] {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.popup-exit-btn {
+    width: 4rem;
+    height: 4rem;
+    font-size: 3rem;
+    background-color: blanchedalmond;
+    align-self: center;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+#invisibleMushroomId {
+    display: none;
 }
